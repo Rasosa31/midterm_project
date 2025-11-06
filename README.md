@@ -1,14 +1,14 @@
-Stock Price Movement Prediction with Machine Learning
+# Stock Price Movement Prediction with Machine Learning
 
 This academic project applies Machine Learning techniques to predict whether a stock's price will go up or down the next day, using historical data and supervised models. The approach is practical, featuring a functional API, Dockerized environment, and a trained model ready to make predictions based on user-provided inputs.
 
-🎯 Project Objective
+## Project Objective
 
 To develop a binary prediction system (up / down) for stock price movement, based on features extracted from historical data. The model was trained, evaluated, and deployed via an API to facilitate integration.
 
-📁 Project Structure
+## Project Structure
 
-File / Folder	Description
+### File / Folder	Description
 
 	stock_pred_ec_oil.ipynb	Main notebook with data exploration, model training, and evaluation.
 	app.py	Script exposing the model as a REST API using FastAPI.
@@ -19,7 +19,7 @@ File / Folder	Description
 	best_model.pkl	Trained and serialized model ready to be loaded by the API.
 	README.md	Project documentation.
 
-🛠️ Technologies Used
+## Technologies Used
 
     Python 3.10+
     Scikit-learn
@@ -28,7 +28,7 @@ File / Folder	Description
     Docker
     Pytest
 
-📊 Example Usage
+## Example Usage
 
 Once the API is running, you can send a POST request with the following input features:
 json
@@ -50,7 +50,7 @@ json
   "meaning": "1 = DOWN tomorrow"
 }
 
-🔍 Input Explanation
+## Input Explanation
 
     Close: Closing price of the stock on the last trading day.
     Volume: Number of shares traded at the close of the last trading day.
@@ -58,60 +58,73 @@ json
     RSI_14: Relative Strength Index (14-period) at the close of the last trading day.
     WTI_Close: Closing price of WTI crude oil on the last trading day.
 
-📈 Results
+## Results
 
 The model achieved an accuracy of 53.1% on the test set, using a classifier [specify: RandomForest, XGBoost, etc.]. It was evaluated using metrics such as accuracy, F1-score, and confusion matrix.
 
-🧪 How to run the prediction model with Docker
+## How to run the prediction model with Docker
 
 The model runs with  Conda and  Docker and the test needs to use the file  test_api.py. Follow the next stpes:
 
-🧪 Cómo correr el modelo de predicción
-Sigue estos pasos para clonar el repositorio, construir el contenedor Docker, y obtener una predicción desde la API.
+## How to run the prediction model
+Follow this steps to clone the repository, built the Docker and get a prediction from the API.
 
-1️⃣ Clonar el repositorio
-bash
+### To clone the repository
+```bash
 git clone https://github.com/tu_usuario/tu_repositorio.git
-cd tu_repositorio
+```
 
-2️⃣ Activar el entorno Conda (opcional si solo usas Docker)
-Si deseas usar el entorno Conda localmente:
-bash
+### cd tu_repositorio
+
+### Activate the Conda environment (optional if you're only using Docker)
+
+If you want to use the Conda environment locally:
+```bash
 conda activate nombre_del_entorno
-Asegúrate de tener el entorno creado previamente. Si no lo tienes, puedes crearlo con:
-bash
+```
+Make sure you have the environment set up beforehand. If you don't have it, you can create it with:
+
+```bash
 conda create -n nombre_del_entorno python=3.8
+```
+```bash
 conda activate nombre_del_entorno
+```
+```bash
 pip install -r requirements.txt
+```
 
-3️⃣ Construir el contenedor Docker
-bash
+### Built the Docker container
+```bash
 docker build -t ec-wti-api .
-Este comando puede tardar unos segundos. El punto (.) al final es obligatorio.
+```
+This command can take some seconds to complete. The period (.) at the end is mandatory.al final es obligatorio.
 
-4️⃣ Correr el contenedor Docker
+### Run the Docker container
 ```bash
 docker run -p 5001:5000 ec-wti-api
 ```
 Esto inicia la API en el puerto 5000 dentro del contenedor, expuesto como 5001 en tu máquina local.
 
-5️⃣ Probar la API desde otra terminal
-Abre una segunda terminal (con el mismo entorno activado si usas Conda) y ejecuta:
-bash
+## Test the API from another terminal
+Open a second terminal (with the same environment enabled if you're using Conda) and run:
+```bash
 python test_api.py
-Esto enviará una solicitud a la API y mostrará una predicción como:
+```
+This will send a request to the API and display a prediction like:
 json
 {
   "prediction": 0,
   "confidence": 0.72,
   "meaning": "0 = SUBE mañana"
 }
-🧠 Notas adicionales
-Asegúrate de tener Docker instalado: Instalar Docker
-El archivo test_api.py debe estar en la raíz del repositorio o en la carpeta indicada.
-Si el puerto 5001 está ocupado, puedes cambiarlo en el comando docker run
+## Additional notes
+Make sure you have Docker installed: Install Docker
+The test_api.py file must be in the repository root or the specified folder.
 
-📦 Model Files
+If port 5001 is in use, you can change it using the `Docker run` command.
+
+## Model Files
 
     Dockerfile
     requirements.txt
@@ -121,13 +134,13 @@ Si el puerto 5001 está ocupado, puedes cambiarlo en el comando docker run
     data/features.pkl
     README.md
 
-🧾 Additional Notes
+## Additional Notes
 
     NaN values handled via dropna()
     Only 5 inputs required — API computes additional features
     Accuracy: 53.1% (+2.5% improvement with WTI feature)
     Model serialized with joblib (preferred over pickle)
 
-🎓 Credits
+# Credits
 
 This project was developed as part of the Machine Learning Zoomcamp course by DataTalksClub (https://github.com/DataTalksClub/machine-learning-zoomcamp/), for educational and practical exploration in data science and machine learning.
