@@ -10,53 +10,53 @@ To develop a binary prediction system (up / down) for stock price movement, base
 
 ### File / Folder	Description
 
-	stock_pred_ec_oil.ipynb	Main notebook with data exploration, model training, and evaluation.
-	app.py	Script exposing the model as a REST API using FastAPI.
-	test_api.py	Unit tests to validate API functionality.
-	requirements.txt	List of dependencies required to run the project.
-	Dockerfile	Configuration for containerizing the application.
-	DATA/	Folder containing the data used to train the model.
-	best_model.pkl	Trained and serialized model ready to be loaded by the API.
-	README.md	Project documentation.
+	1. stock_pred_ec_oil.ipynb	Main notebook with data exploration, model training, and evaluation.
+	2. app.py	Script exposing the model as a REST API using FastAPI.
+	3. test_api.py	Unit tests to validate API functionality.
+	4. requirements.txt	List of dependencies required to run the project.
+	5. Dockerfile	Configuration for containerizing the application.
+	6. DATA/	Folder containing the data used to train the model.
+	7. best_model.pkl	Trained and serialized model ready to be loaded by the API.
+	8. README.md	Project documentation.
 
 ## Technologies Used
 
-    Python 3.10+
-    Scikit-learn
-    Pandas / NumPy
-    FastAPI
-    Docker
-    Pytest
+    -Python 3.10+
+    -Scikit-learn
+    -Pandas / NumPy
+    -FastAPI
+    -Docker
+    -Pytest
 
 ## Example Usage
 
 Once the API is running, you can send a POST request with the following input features:
-json
+  json
 
-{
+      {
   "Close": 10.0,  
   "Volume": 500000,
   "SMA_100": 12.0,
   "RSI_14": 56.0,
   "WTI_Close": 46.32
-}
+       }
 
 The response will be:
 
-json
-{
+   json
+       {
   "prediction": 1,
   "confidence": 0.6,
   "meaning": "1 = DOWN tomorrow"
-}
+        }
 
 ## Input Explanation
 
-    Close: Closing price of the stock on the last trading day.
-    Volume: Number of shares traded at the close of the last trading day.
-    SMA_100: 100-period Simple Moving Average at the close of the last trading day.
-    RSI_14: Relative Strength Index (14-period) at the close of the last trading day.
-    WTI_Close: Closing price of WTI crude oil on the last trading day.
+    1. Close: Closing price of the stock on the last trading day.
+    2. Volume: Number of shares traded at the close of the last trading day.
+    3. SMA_100: 100-period Simple Moving Average at the close of the last trading day.
+    4. RSI_14: Relative Strength Index (14-period) at the close of the last trading day.
+    5. WTI_Close: Closing price of WTI crude oil on the last trading day.
 
 ## Results
 
@@ -124,15 +124,6 @@ The test_api.py file must be in the repository root or the specified folder.
 
 If port 5001 is in use, you can change it using the `Docker run` command.
 
-## Model Files
-
-    Dockerfile
-    requirements.txt
-    app.py (with 5 inputs + automatic feature calculation)
-    test_api.py
-    best_model.pkl
-    data/features.pkl
-    README.md
 
 ## Additional Notes
 
