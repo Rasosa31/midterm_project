@@ -62,13 +62,54 @@ json
 
 The model achieved an accuracy of 53.1% on the test set, using a classifier [specify: RandomForest, XGBoost, etc.]. It was evaluated using metrics such as accuracy, F1-score, and confusion matrix.
 
-🧪 Docker
+🧪 How to run the prediction model with Docker
 
-To run the project inside a container:
+The model runs with  Conda and  Docker and the test needs to use the file  test_api.py. Follow the next stpes:
 
-    docker build -t stock-predictor .
-    docker run -p 8000:8000 stock-predictor
-    python test_api.py
+🧪 Cómo correr el modelo de predicción
+Sigue estos pasos para clonar el repositorio, construir el contenedor Docker, y obtener una predicción desde la API.
+
+1️⃣ Clonar el repositorio
+bash
+git clone https://github.com/tu_usuario/tu_repositorio.git
+cd tu_repositorio
+
+2️⃣ Activar el entorno Conda (opcional si solo usas Docker)
+Si deseas usar el entorno Conda localmente:
+bash
+conda activate nombre_del_entorno
+Asegúrate de tener el entorno creado previamente. Si no lo tienes, puedes crearlo con:
+bash
+conda create -n nombre_del_entorno python=3.8
+conda activate nombre_del_entorno
+pip install -r requirements.txt
+
+3️⃣ Construir el contenedor Docker
+bash
+docker build -t ec-wti-api .
+Este comando puede tardar unos segundos. El punto (.) al final es obligatorio.
+
+4️⃣ Correr el contenedor Docker
+'''bash
+docker run -p 5001:5000 ec-wti-api
+'''
+Esto inicia la API en el puerto 5000 dentro del contenedor, expuesto como 5001 en tu máquina local.
+
+5️⃣ Probar la API desde otra terminal
+Abre una segunda terminal (con el mismo entorno activado si usas Conda) y ejecuta:
+bash
+python test_api.py
+Esto enviará una solicitud a la API y mostrará una predicción como:
+json
+{
+  "prediction": 0,
+  "confidence": 0.72,
+  "meaning": "0 = SUBE mañana"
+}
+🧠 Notas adicionales
+Asegúrate de tener Docker instalado: Instalar Docker
+El archivo test_api.py debe estar en la raíz del repositorio o en la carpeta indicada.
+Si el puerto 5001 está ocupado, puedes cambiarlo en el comando docker run
 
 📦 Model Files
 
