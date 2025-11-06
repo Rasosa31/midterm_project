@@ -90,9 +90,9 @@ docker build -t ec-wti-api .
 Este comando puede tardar unos segundos. El punto (.) al final es obligatorio.
 
 4️⃣ Correr el contenedor Docker
-'''bash
+```bash
 docker run -p 5001:5000 ec-wti-api
-'''
+```
 Esto inicia la API en el puerto 5000 dentro del contenedor, expuesto como 5001 en tu máquina local.
 
 5️⃣ Probar la API desde otra terminal
