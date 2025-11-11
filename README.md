@@ -31,7 +31,8 @@ To develop a binary prediction system (up / down) for stock price movement, base
 ## Example Usage
 
 Once the API is running, you can send a POST request with the following input features:
-  json
+  
+json
 
       {
   "Close": 10.0,  
@@ -43,7 +44,7 @@ Once the API is running, you can send a POST request with the following input fe
 
 The response will be:
 
-   json
+json
        {
   "prediction": 1,
   "confidence": 0.6,
@@ -71,12 +72,12 @@ Follow this steps to clone the repository, built the Docker and get a prediction
 
 ### To clone the repository
 ```bash
-git clone https://github.com/tu_usuario/tu_repositorio.git
+git https://github.com/Rasosa31/midterm_project.git
 ```
 
-### cd tu_repositorio
+#### cd tu_repositorio
 
-### Activate the Conda environment (optional if you're only using Docker)
+#### Activate the Conda environment (optional if you're only using Docker)
 
 If you want to use the Conda environment locally:
 ```bash
@@ -104,7 +105,7 @@ This command can take some seconds to complete. The period (.) at the end is man
 ```bash
 docker run -p 5001:5000 ec-wti-api
 ```
-Esto inicia la API en el puerto 5000 dentro del contenedor, expuesto como 5001 en tu máquina local.
+That start the API en el puerto 5000 inside the container , expose as 5001 in the local machine.
 
 ## Test the API from another terminal
 Open a second terminal (with the same environment enabled if you're using Conda) and run:
@@ -119,6 +120,7 @@ json
   "meaning": "0 = SUBE mañana"
 }
 ## Additional notes
+
 Make sure you have Docker installed: Install Docker
 The test_api.py file must be in the repository root or the specified folder.
 
